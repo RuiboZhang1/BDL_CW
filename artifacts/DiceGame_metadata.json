@@ -1,0 +1,233 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "Games",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "host",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hostHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "hostSecretNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "guest",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "guestHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "guestSecretNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastBlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "withdrawPermit",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "Players",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "hostAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "guestAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hostHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "createPrivateGame",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hostHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "createPublicGame",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "secretNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "hostAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "guestHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "joinGame",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "roll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "terminateGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "secretNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "verification",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "previousHostAddress",
+						"type": "address"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Gaming Rules 1. Create Game - Host input Secret Number into the getHash() function, return the hashvalue - Host can create a public game with the hashvalue or a private game with the guest address and the hashvalue. 2. Join Game - Guest input Secret Number into the getHash() function, return the hashvalue - Guest join a game with the host address and the hashvalue 3. Verification - Both players need to verify their identity before rolling the dice by input their secretNum to the function 4. Roll - The dice value will be generated based on the hash of players' secretNum and the last modified block number - After rolling, the game will be reset Additional Functions A. Terminate Game - The game can be terminate without rolling the dice in 4 conditions 1. The host can terminate the game if no guest join after 3 blocks 2. The host can terminate the game if the guest not verified the identity after 20 blocks, and get 1 eth from the guest as compensation. 3. The guest can terminate the game if the host not verified the identity after 20 blocks, and get 1 eth from the host as compensation. 4. Both player can terminate the game if both player not verified the identity ater 20 blocks B. Withdraw - Players cannot withdraw until the dice rolled.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"s1911027_2.sol": "DiceGame"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"s1911027_2.sol": {
+			"keccak256": "0x3421962bdbd16bf6e84ab9cb6e8d4590c03200a8ed57fc120df2170a1678cbfa",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://a251445cdd03036a8194a7033041cfe45cba527dd0ac9c0d03f5fa81763a5290",
+				"dweb:/ipfs/QmaRxGsJS2MuG2QRooGGoJ2pbL7EaJL39jZTto6PzrypMq"
+			]
+		}
+	},
+	"version": 1
+}

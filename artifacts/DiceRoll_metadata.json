@@ -1,0 +1,195 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "Registration",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dice",
+						"type": "uint256"
+					}
+				],
+				"name": "Roll",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getResult",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "secretNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "getSecretHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashvalue",
+						"type": "bytes32"
+					}
+				],
+				"name": "registerPlayerA",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashvalue",
+						"type": "bytes32"
+					}
+				],
+				"name": "registerPlayerB",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "withdraw",
+						"type": "bool"
+					}
+				],
+				"name": "resetGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "secretNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "roll",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Game Process 1. Player Registration - player A call RegisterPlayerA(), sending a hashvalue of the secretNumber - player B call RegisterPlayerB(), sending a hashvalue of the secretNumber 2. Deposit - player need to deposit the money to the game balance. The value of deposit should larger than the gas fee. 3. Roll Dice - player A call StartRoll(), with the secretNumber as a proof of authentication. - player B call StartRoll(), with the secretNumber as a proof of authentication. - The balance for both players should greater than 3 eth. 4. reset and restart the game - reset the dice without withdrowing the money 5. reset and withdrowing the money - reset the dice with withdrowing the money",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"s1911027.sol": "DiceRoll"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"s1911027.sol": {
+			"keccak256": "0xd3e7e875bdb459ce95efea5d9026e78ffec7a553f7fe3b31cd09f1ab45f29714",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://257c08e0a8980b0f4c626f700e81a56308d58d4341f87367aa76a7510f370269",
+				"dweb:/ipfs/QmSdbsT8JdjggwfUzmBw9QhpcuN4RSJ46BtSTTTH4Q9MEY"
+			]
+		}
+	},
+	"version": 1
+}

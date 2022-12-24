@@ -1,0 +1,157 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "ciphertext",
+						"type": "bytes32"
+					}
+				],
+				"name": "enterA",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "ciphertext",
+						"type": "bytes32"
+					}
+				],
+				"name": "enterB",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "getHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getResultAndFund",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "reset",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resetAndWithdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "roll",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"enterA(bytes32)": {
+					"notice": "for playerA to attend  ciphertext: commitment scheme - commitment*"
+				},
+				"enterB(bytes32)": {
+					"notice": "for playerB to attend  ciphertext: commitment scheme - commitment*"
+				},
+				"getResultAndFund()": {
+					"notice": "fetch result and balance*"
+				},
+				"reset()": {
+					"notice": "reset to start a new game wait for A and B both call the function, then reset the dice*"
+				},
+				"resetAndWithdraw()": {
+					"notice": "reset and withdraw the balance which means A/B can reset and play the new game without withdrawing the balance*"
+				},
+				"roll(uint256)": {
+					"notice": "roll the dice value: commitment scheme - value -> generate random number safely wait for A and B both call the function, then roll the dice.*"
+				}
+			},
+			"notice": "1. enter process:  - A call enterA(), transfer + ciphertext - B call enterB(), transfer + ciphertext 2. roll process:  - A call roll(), value - B call roll(), value -> execute roll dice 3. result - A call getResult(), B call getResult() 4. reset or reset and withdraw  - A call reset() / resetAndWithdraw() - B call reset() / resetAndWithdraw() 5. new round of game... TODO: if A and B send the same value  emit event",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/bdl cw2..sol": "DiceGame"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/bdl cw2..sol": {
+			"keccak256": "0xcd27e28c107c3ed7ca1cd4bdcae1d0fbbbfc0af4dd330e2e9ca7f32f2e26a88c",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e68736be61aea8aa274dd8bdc2b59ce739187884cda67bb69d9fa251d5cedcbb",
+				"dweb:/ipfs/QmUMrz3HATRqS1EYiBFFbGfBwDre2LGbXPvhXWMLP7z2QP"
+			]
+		}
+	},
+	"version": 1
+}
